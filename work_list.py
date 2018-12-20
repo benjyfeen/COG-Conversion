@@ -45,7 +45,7 @@ def generate_work_list(product_name, year, month, from_date, output_dir, invento
 
     # We only want to process datasets that are not in AWS bucket
     uris = [uri
-            for uri, prefix in get_dataset_values(CFG['products'][product_name], year, month, from_date, 'dea-prod')
+            for uri, prefix in get_dataset_values(product_name, year, month, from_date, 'dea-prod')
             if prefix + '.yaml' not in s3_yaml_keys]
 
     out_file = Path(output_dir) / 'file_list'
