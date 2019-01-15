@@ -66,12 +66,7 @@ def cog_translate(
                         mem.write(matrix, window=w)
 
                         if nodata is not None:
-                            mask_value = (
-                                numpy.all(matrix != nodata, axis=0).astype(
-                                    numpy.uint8
-                                )
-                                * 255
-                            )
+                            mask_value = (numpy.all(matrix != nodata, axis=0).astype(numpy.uint8) * 255)
                         elif alpha is not None:
                             mask_value = src.read(alpha, window=w)
                         else:
